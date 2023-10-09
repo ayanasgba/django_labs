@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+    <h1>Top 3 books that I like</h1>
+    {% for i in book_key %}
+    <li>
+        <h2>{{i.title}}</h2>
+        <p><em>{{i.description}}</em></p>
+        <img src="{{i.image.url}}" alt="books">
+        <p><strong>{{i.cost}}</strong></p>
+        <p>{{i.created_date}}</p>
+    </li>
+    {% endfor %}
+</body>
+</html>
