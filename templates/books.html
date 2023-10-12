@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books</title>
-</head>
-<body>
-    <h1>Top 3 books that I like</h1>
-    {% for i in book_key %}
-    <li>
-        <h2>{{i.title}}</h2>
-        <p><em>{{i.description}}</em></p>
-        <img src="{{i.image.url}}" alt="books">
-        <p><strong>{{i.cost}}</strong></p>
-        <p>{{i.created_date}}</p>
-    </li>
-    {% endfor %}
-</body>
-</html>
+{% include 'header.html' %}
+
+<br>
+    <center>
+        <span class="badge text-bg-secondary">
+            <h1>My favorite books</h1>
+        </span>
+    </center>
+<br>
+<div class="flex">
+ {% for i in book_key %}
+    <div class="card" style="width: 18rem;">
+      <a href="/book_detail/{{i.id}}/">
+          <img src="{{i.image.url}}" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{i.title}}</h5>
+        <p class="card-text">{{i.description}}</p>
+        <a href="/book_detail/{{i.id}}/" class="btn btn-primary">More about the book</a>
+      </div>
+    </div>
+   {% endfor %}
+     </div>
+{% include 'footer.html' %}
